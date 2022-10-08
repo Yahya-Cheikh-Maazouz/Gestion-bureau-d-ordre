@@ -1,0 +1,72 @@
+
+.glassmorphism{
+  background: rgba(192, 192, 192, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+
+.logoFont{
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  word-spacing: 0px;
+  color:#5a4be4;
+  font-weight: 900;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: uppercase;
+}
+
+ul {
+  list-style-type: none; /* Remove bullets */
+}
+
+
+.li-Menu{
+  padding-bottom: 10%;
+  padding-top: 10%;
+  border-top: 1px dotted #1C6EA4;
+}
+
+.li-Menu:hover{
+  transition: height 1s ease 0s;
+  opacity: 1;
+  background-color: rgba(200,200,200,0.1);
+}
+.li-Menu:active {
+  background-color: rgba(200,200,200,0.1);
+}
+
+.li-Menu a{
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.li-Menu a mat-icon{
+  font-size:1.5rem;
+  padding-bottom: 1px;
+}
+
+.li-Menu a span{
+ margin-left: 10px;
+}
+
+.vertical-center {
+  display: flex;
+  align-items: center;
+}
+
+#MyImage {width: 80px;
+  height: auto;
+}
+
+#MyLogoText{
+  color:rgba(0, 0, 100,1);margin-left: -15px;font-weight: 900;font-size: 0.7rem
+}

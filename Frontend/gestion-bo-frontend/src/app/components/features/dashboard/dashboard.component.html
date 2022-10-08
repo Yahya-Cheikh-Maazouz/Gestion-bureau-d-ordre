@@ -1,0 +1,121 @@
+<section class="container mt-5">
+
+  <div class="row ms-2 me-2 ">
+    <div *ngFor="let i of obj" class="ms-4 col border container-dash rounded-3 row d-flex justify-content-center align-items-center">
+      <div class="col-2">
+        <div  class=" rounded-circle d-flex justify-content-center align-items-center CR" [ngStyle]="{'background-color':i.color}" style="margin-left: -5px" >
+          <i [ngClass]="i.classIcon"  style="font-size: 1.3rem"></i>
+        </div>
+      </div>
+      <div class="col  ms-4 ps-2">
+        <div class="pt-2 Title">{{i.title}}</div>
+        <div class="pt-2 ms-2">{{i.value}}</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="container mt-5">
+
+  <div class="row ms-3 ">
+
+    <div class="card Mycard" >
+      <div class="card-body">
+        <p class="text-uppercase small mb-2" style="color: #2a6f97"><strong>Dashboard</strong></p>
+        <h5 class="text-uppercase small mb-2" style="font-size: 0.7rem; color:#666">Courrier Traité</h5>
+      </div>
+      <hr class="my-0">
+      <div class="card-body" >
+        <canvas style="max-height: 350px" height="270rem" id="myChart1"  ></canvas>
+      </div>
+      <hr class="my-0">
+      <div class="card-body" >
+      </div>
+    </div>
+
+    <div class="ms-3 card Mycard" >
+      <div class="card-body">
+        <p class="text-uppercase small mb-2" style="color: #2a6f97"><strong>Dashboard</strong></p>
+        <h5 class="text-uppercase small mb-2" style="font-size: 0.7rem; color:#666">Courrier Entrants & Sortants</h5>
+      </div>
+      <hr class="my-0">
+      <div class="card-body" >
+        <canvas style="max-height: 350px" height="270rem" id="myChart"  ></canvas>
+      </div>
+      <hr class="my-0">
+      <div class="card-body" >
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!--<section>
+  <div class="styleTitle text-center mt-5" >Liste des utilisateurs</div>
+
+
+  <div class="element " style="overflow-x: scroll;">
+    <div class="mat-elevation-z8 "  style="width :70%;margin: 0 auto; min-width: 900px">
+      <div class="row mt-4 pt-2 pb-0 ms-4  ">
+        <div class="col-3  " data-bs-toggle="modal" data-bs-target="#exampleModal" style="width:20%">
+
+          <button class=" mt-2 btn btn-outline-secondary  btn-sm ms-4" style="width: 150px" >Ajouter</button>
+        </div>
+
+
+        <div class="col pt-2" style="margin-left:3%">
+          <input class="form-control me-2 searchIn" #input (keyup)="applyFilter($event)" style="width: 190px" type="search" placeholder="Chercher un utilisateur" aria-label="Search">
+        </div>
+      </div>
+
+      <div class="pb-3"></div>
+
+      <table mat-table class="pb-5" [dataSource]="dataSource"  style="width :100%;">
+
+        &lt;!&ndash; dateReception &ndash;&gt;
+        <ng-container matColumnDef="firstName">
+          <th mat-header-cell *matHeaderCellDef> first Name</th>
+          <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+        </ng-container>
+
+        &lt;!&ndash; reference &ndash;&gt;
+        <ng-container matColumnDef="lastName">
+          <th mat-header-cell *matHeaderCellDef> last Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+        </ng-container>
+
+        &lt;!&ndash; reference &ndash;&gt;
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> email </th>
+          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+        &lt;!&ndash; BTN &ndash;&gt;
+        <ng-container  matColumnDef="Action">
+          <th mat-header-cell class="Header-mat " *matHeaderCellDef mat-sort-header> <div class="ms-4">Manage courrier</div> </th>
+          <td mat-cell *matCellDef="let row">
+
+            <button class="btn btn-outline-info btn-sm" >Modifier</button>
+            <button class="btn btn-outline-danger btn-sm ms-4" >Supprimer</button>
+
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <mat-paginator class="mb-5" [pageSizeOptions]="[5, 7, 10]"
+                     showFirstLastButtons
+                     aria-label="Select page of  elements">
+      </mat-paginator>
+    </div>
+  </div>
+</section>-->
+
+
+
+

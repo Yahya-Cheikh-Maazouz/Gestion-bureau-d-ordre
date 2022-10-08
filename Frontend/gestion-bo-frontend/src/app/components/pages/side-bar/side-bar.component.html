@@ -1,0 +1,34 @@
+<a routerLink="/home" class="mx-auto ps-3 vertical-center" style="width: 100%">
+  <img class="pb-1" id="MyImage" src="../../../../assets/img/logo.webp">
+  <span class="align-middle text-uppercase" id="MyLogoText">gestion de bo</span>
+</a>
+
+<div class="text-white " >
+  <ul class="ms-1" id="menu">
+    <li class=" li-Menu"  *ngIf="isAdmin">
+      <a routerLink="dashborad" data-bs-toggle="collapse" class="">
+        <mat-icon aria-hidden="false" >pie_chart</mat-icon>
+        <span >Dashboard</span>
+      </a>
+    </li>
+    <li class="li-Menu">
+      <a routerLink="courriers" id="" class="">
+        <mat-icon aria-hidden="false" >file_copy</mat-icon>
+        <span >Courriers</span> </a>
+    </li>
+    <li class="li-Menu" *ngIf="isAdmin">
+      <a routerLink="accounts" id="accounts" class="">
+        <mat-icon aria-hidden="false" >people</mat-icon>
+        <span >Accounts</span></a>
+    </li>
+    <li class="li-Menu" style="border-bottom: 1px dotted #1C6EA4;padding-bottom: 9%;" *ngIf="isAdmin">
+      <a routerLink="expediteur" id="exp" class="">
+        <mat-icon aria-hidden="false" >move_to_inbox</mat-icon>
+        <span  >Expediteur</span></a>
+    </li>
+  </ul>
+  <hr>
+</div>
+
+
+

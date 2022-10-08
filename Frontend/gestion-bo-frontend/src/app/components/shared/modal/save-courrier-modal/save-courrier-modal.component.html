@@ -1,0 +1,89 @@
+<form class="mb-3" [formGroup]="CourrierForm" (ngSubmit)="saveCourrier()">
+
+
+  <label for="date" class="mt-2 form-label text-uppercase">date</label>
+  <input type="date" formControlName="dateReception" class="form-control" id="date" >
+
+  <label for="ref" class=" mt-2 form-label text-uppercase">reference</label>
+  <input type="text" formControlName="reference" class="form-control" id="ref" placeholder="reference">
+
+  <label for="dest" class="mt-2 form-label text-uppercase">destinataire</label>
+  <input type="text" formControlName="destinataire" class="form-control" id="dest" placeholder="destinataire">
+
+  <label for="moderecp" class="mt-2 form-label text-uppercase">mode de Reception</label>
+  <input type="text" formControlName="modeReception" class="form-control" id="moderecp" placeholder="mode de Reception">
+
+  <label for="type" class="mt-2 form-label text-uppercase">type de courrier</label>
+  <select formControlName="typeCourrier" class="form-control form-select"  id="type">
+    <option disabled>--Please choose an option--</option>
+    <option  value="Entrant">Entrant</option>
+    <option  value="Sortant">Sortant</option>
+  </select>
+
+  <div *ngIf="this.expediteurExist">
+    <label class="form-check-label text-uppercase mt-1" >Type d'expediteur </label>
+    <select   class="form-control form-select pb-1" (change)="chooseExpediteurType($event)" >
+      <option  value="moral">moral</option>
+      <option  value="physique">physique</option>
+    </select>
+
+    <label for="exp" class="mt-2 form-label text-uppercase" >choisir expediteur</label>
+    <select  class="form-control form-select" name="expediteur" formControlName="expediteur" id="exp">
+      <option   disabled  >--Please choose an option--</option>
+      <option *ngFor="let exped of this.ListExpediteur" [value]="exped.id" >
+        <div *ngIf="ExpediteurType">{{exped.raisonSocial}}</div>
+        <div *ngIf="!ExpediteurType">{{exped.prenom}} {{exped.nom}} </div>
+      </option>
+    </select>
+  </div>
+
+  <div  class="mt-2 form-check form-switch">
+    <label class="form-check-label" for="flexSwitchCheckDefault">Expediteur n'esxite pas cliquer ici pour l'ajouter  </label>
+    <input class="form-check-input"  (change)="checkCheckBoxvalue()" #checkbox type="checkbox" id="flexSwitchCheckDefault">
+  </div>
+
+  <div *ngIf="!this.expediteurExist" class="pb-1">
+    <label class="form-check-label text-uppercase mt-1" >Type d'expediteur </label>
+    <select   class="form-control form-select pb-1" (change)="TypeExpediteur($event)" id="expediteur">
+      <option  value="moral">moral</option>
+      <option  value="physique">physique</option>
+    </select>
+    <div *ngIf="this.isMoral" class="mt-2">
+      <label    class="form-label text-uppercase">raison social</label>
+      <input type="text" formControlName="raisonSocial" name="raisonSocial" class="form-control"  placeholder="raison social">
+    </div>
+
+    <div *ngIf="!this.isMoral" class="mt-2">
+      <label for="ref"   class="form-label text-uppercase">nom</label>
+      <input type="text" formControlName="nom"   class="form-control" placeholder="raison social">
+      <label for="ref"   class="form-label text-uppercase">prenom</label>
+      <input type="text" formControlName="prenom"   class="form-control"  placeholder="raison social">
+      <label for="ref"   class="form-label text-uppercase">cin</label>
+      <input type="text"  formControlName="cin"  class="form-control"  placeholder="raison social">
+    </div>
+
+    <label for="adresse" class="mt-2 form-label text-uppercase">adresse</label>
+    <input type="text" formControlName="adresse" name="adresse" class="form-control" id="adresse" placeholder="adresse">
+
+    <label for="dest" class="mt-2 form-label text-uppercase">email</label>
+    <input type="email" formControlName="email" name="email" class="form-control" id="mail" placeholder="email">
+
+
+    <label for="dest" class="mt-2 form-label text-uppercase">telephone</label>
+    <input type="tel" formControlName="telephone"  name="telephone" class="form-control" id="tel" placeholder="+212-">
+
+  </div>
+
+  <label for="comt"  class="mt-2 form-label text-uppercase" >commentaire</label>
+  <textarea id="comt"  formControlName="commentaire" class="form-control "  rows="1" cols="33"> </textarea>
+
+  <label for="file" class="mt-2 form-label text-uppercase">upload file</label>
+  <input type="file"   class="form-control" accept="image/*, .pdf" (change)="onFileChange($event)"  required id="file" placeholder="mode de Reception">
+
+  <div class="mt-4 ms-3 me-3 row justify-content-between">
+    <hr><!--[disabled]="!formIsValided"-->
+    <button type="submit" class="btn btn-primary col-5 "  data-bs-dismiss="modal">Save </button>
+    <button type="button" class="btn btn-danger col-5" data-bs-dismiss="modal">Close</button>
+  </div>
+
+</form>

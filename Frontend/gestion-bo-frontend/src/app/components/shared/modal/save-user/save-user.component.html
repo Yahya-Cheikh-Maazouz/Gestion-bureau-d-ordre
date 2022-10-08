@@ -1,0 +1,67 @@
+
+<section class="text-center text-lg-start ">
+  <div class="container py-4" >
+    <div class="row  align-items-center" style="margin-left: 10%" >
+      <div class="col-lg-12 mb-5 mb-lg-0 ">
+        <div class="card " style=" background: hsla(0, 0%, 100%, 0.55); backdrop-filter: blur(30px);">
+          <div class="card-body p-5 shadow-5 text-center ">
+            <h2 class="fw-bold mb-5">Ajouter un utilisateur</h2>
+
+            <form [formGroup]="signupForm" (ngSubmit)="signup()">
+              <div class="form-outline mb-1 has-validation">
+                <input type="text" formControlName="firstName" aria-describedby="validationFirstNameFeedback" placeholder="first name"
+                       class="form-control" required />
+                <div id="validationFirstNameFeedback" class="invalid-feedback text-start">
+                  ce champ est obligatoire.
+                </div>
+              </div>
+
+              <div class="form-outline mb-1 has-validation">
+                <input type="text" formControlName="lastName"  aria-describedby="validationLastNameFeedback" placeholder="last name" class="form-control"
+                       required />
+                <div id="validationLastNameFeedback" class="invalid-feedback text-start">
+                  ce champ est obligatoire.
+                </div>
+              </div>
+
+              <div class="form-outline mb-1 has-validation">
+                <input type="email" aria-describedby="validationMailFeedback" formControlName="mail" placeholder="mail" class="form-control"
+                       required />
+                <div id="validationMailFeedback" class="invalid-feedback text-start">
+                  email est obligatoire et doit contenir @.
+                </div>
+              </div>
+
+              <div class="form-outline mb-1 has-validation">
+                <input type="password" aria-describedby="validationPassWordFeedback" formControlName="passWord" placeholder="password" class="form-control"
+                       required />
+                <div id="validationPassWordFeedback" class="invalid-feedback text-start">
+                  mot de passe doit contenir au minimum 6 caracteres.
+                </div>
+              </div>
+
+
+              <!-- Submit button -->
+              <input type="submit" class="btn btn-primary btn-block mt-4 mb-4" value="signup" />
+
+              <!-- Register buttons -->
+              <!--<div class=" row text-center">
+                <p>or sign up with:</p>
+                <button class=" col btn btn-outline-secondary ms-2"
+                        ><i class="fab fa-google me-2"></i> Sign in with google</button>
+                <button class=" col btn btn-outline-secondary ms-2"
+                        ><i class="fab fa-facebook-f me-2"></i>Sign in with facebook</button>
+
+              </div>-->
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!--<div class="col-lg-5 mb-5 mb-lg-0">
+        <img src="https://static.doofinder.com/main-files/uploads/2017/12/tienda-en-facebook.jpg" class="w-100  shadow-4"
+             alt="" />
+      </div>-->
+    </div>
+  </div>
+</section>

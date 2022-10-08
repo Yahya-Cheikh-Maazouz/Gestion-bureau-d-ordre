@@ -1,0 +1,3 @@
+export enum Courrierstate{
+ENVOYER,REFUSER,TRAITER,CLOTURER,ENTRAITEMNT
+}

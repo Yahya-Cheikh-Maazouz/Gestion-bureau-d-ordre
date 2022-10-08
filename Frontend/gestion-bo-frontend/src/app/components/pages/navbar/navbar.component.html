@@ -1,0 +1,42 @@
+<nav class=" navbar navbar-expand-lg navbar-light shadow-sm ">
+  <!-- THIS IS FOR ASIDE BAR -->
+  <button class="ps-4" *ngIf="!hide" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" style="border: none">
+    <a><mat-icon id="openAside" >list</mat-icon></a>
+  </button>
+  <!-- THIS IS FOR NAVBAR -->
+  <button style="margin-left: 100px" class="navbar-toggler"   type="button" data-toggle="collapse" data-target="#navIdFirst" aria-controls="navIdFirst" aria-expanded="false" >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div  class=" ms-5 ps-2  collapse navbar-collapse" id="navIdFirst">
+
+    <ul class=" ps-1 navbar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" routerLink="home" >Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" routerLink="account">paramètres</a>
+      </li>
+     <!-- <li class="nav-item">
+        <a class="nav-link active" aria-current="page" routerLink="doc">Documentation</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" routerLink="contact">Contact</a>
+      </li>-->
+    </ul>
+
+    <ul style="margin-left:47%" class="navbar-nav">
+      <li class="nav-item dropdown " >
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          {{this.user}}
+          <img src="../../../../assets/img/img.png" alt="hugenerd" width="30" height="auto" class="rounded-circle">
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>

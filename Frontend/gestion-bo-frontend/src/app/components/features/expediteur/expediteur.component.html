@@ -1,0 +1,179 @@
+
+<div class="styleTitle text-center mt-5" >Liste des expediteurs</div>
+
+<div class="element " style="overflow-x: scroll;">
+  <div class="mat-elevation-z8 "  style="width :80%;margin: 0 auto; min-width: 900px">
+    <div class="row mt-4 pt-2 pb-0 ms-4  ">
+      <div class="col-3  " data-bs-toggle="modal" data-bs-target="#exampleModal" style="width:20%">
+        <button data-bs-toggle="modal" data-bs-target="#exampleModal" class=" mt-2 btn btn-outline-secondary  btn-sm ms-4" style="width: 150px" >Ajouter</button>
+      </div>
+
+      <div class="col-3  " (click)="chooseExpType('m')" style="width:20%">
+        <button  class=" mt-2 btn btn-outline-secondary  btn-sm ms-4" style="width: 150px" >Exp Morals</button>
+      </div>
+
+      <div class="col-3  "  style="width:20%">
+        <button (click)="chooseExpType('p')"  class=" mt-2 btn btn-outline-secondary  btn-sm ms-4" style="width: 150px" >Exp Physiques</button>
+      </div>
+
+      <div class="col pt-2" style="margin-left:3%">
+        <input class="form-control me-2 searchIn" #input (keyup)="applyFilter($event)" style="width: 190px" type="search" placeholder="Chercher un utilisateur" aria-label="Search">
+      </div>
+    </div>
+
+    <div class="pb-3"></div>
+
+    <table *ngIf="IsMoral" mat-table class="pb-5" [dataSource]="dataSource"  style="width :100%;">
+
+      <!-- raison social -->
+      <ng-container matColumnDef="raisonSocial">
+        <th mat-header-cell *matHeaderCellDef> raisonSocial </th>
+        <td mat-cell *matCellDef="let element"> {{element.raisonSocial}} </td>
+      </ng-container>
+
+      <!-- adresse -->
+      <ng-container matColumnDef="adresse">
+        <th mat-header-cell *matHeaderCellDef> adresse </th>
+        <td mat-cell *matCellDef="let element"> {{element.adresse}} </td>
+      </ng-container>
+
+      <!-- email -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <!-- telephone -->
+      <ng-container matColumnDef="telephone">
+        <th mat-header-cell *matHeaderCellDef> telephone </th>
+        <td mat-cell *matCellDef="let element"> {{element.tel}} </td>
+      </ng-container>
+
+      <!-- BTN -->
+      <ng-container  matColumnDef="Action">
+        <th mat-header-cell class="Header-mat " *matHeaderCellDef mat-sort-header> <div class="ms-4">Manage courrier</div> </th>
+        <td mat-cell *matCellDef="let row">
+
+          <button class="btn btn-outline-info btn-sm" (click)="getRow(row)" data-bs-toggle="modal" data-bs-target="#exampleModal1" >Modifier</button>
+          <button class="btn btn-outline-danger btn-sm ms-4" (click)="deleteExpditeur(row)" >Supprimer</button>
+
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+    <!--SECOND TABLE-->
+    <table *ngIf="!IsMoral" mat-table class="pb-5" [dataSource]="dataSource"  style="width :100%;">
+
+      <!-- nom -->
+      <ng-container matColumnDef="nom">
+        <th mat-header-cell *matHeaderCellDef> nom </th>
+        <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+      </ng-container>
+
+      <!-- prenom -->
+      <ng-container matColumnDef="prenom">
+        <th mat-header-cell *matHeaderCellDef> prenom </th>
+        <td mat-cell *matCellDef="let element"> {{element.prenom}} </td>
+      </ng-container>
+
+      <!-- cin -->
+      <ng-container matColumnDef="cin">
+        <th mat-header-cell *matHeaderCellDef> cin </th>
+        <td mat-cell *matCellDef="let element"> {{element.cin}} </td>
+      </ng-container>
+
+      <!-- adresse -->
+      <ng-container matColumnDef="adresse">
+        <th mat-header-cell *matHeaderCellDef> adresse </th>
+        <td mat-cell *matCellDef="let element"> {{element.adresse}} </td>
+      </ng-container>
+
+      <!-- email -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <!-- telephone -->
+      <ng-container matColumnDef="telephone">
+        <th mat-header-cell *matHeaderCellDef> telephone </th>
+        <td mat-cell *matCellDef="let element"> {{element.tel}} </td>
+      </ng-container>
+
+      <!-- BTN -->
+      <ng-container  matColumnDef="Action">
+        <th mat-header-cell class="Header-mat " *matHeaderCellDef mat-sort-header> <div class="ms-4">Manage courrier</div> </th>
+        <td mat-cell *matCellDef="let row">
+
+          <button class="btn btn-outline-info btn-sm" (click)="getRow(row)" data-bs-toggle="modal" data-bs-target="#exampleModal1">Modifier</button>
+          <button class="btn btn-outline-danger btn-sm ms-4" (click)="deleteExpditeur(row)" >Supprimer</button>
+
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+    </table>
+
+    <mat-paginator class="mb-5" [pageSizeOptions]="[5, 7, 10]"
+                   showFirstLastButtons
+                   aria-label="Select page of  elements">
+    </mat-paginator>
+  </div>
+
+
+
+
+
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ajouter un expediteur</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <app-save-expediteur-modal></app-save-expediteur-modal>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- update -->
+  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel1">modifier un expediteur</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <app-update-expediteur-modal [row]="this.dataRow" [isMoral]="IsMoral"></app-update-expediteur-modal>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+

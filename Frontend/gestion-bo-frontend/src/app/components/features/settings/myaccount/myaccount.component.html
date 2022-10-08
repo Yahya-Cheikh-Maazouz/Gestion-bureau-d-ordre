@@ -1,0 +1,61 @@
+<div class="container  bg-white me-5 pe-5 pt-2 pb-5"  *ngIf="userInfo!=null">
+  <h2 class="mt-5 ms-5"> Account Settings</h2>
+
+  <div class="row mt-5">
+    <div class="col-5 row ">
+      <div class="col-11">
+        <label    class="form-label text-uppercase">First Name</label>
+        <input type="text" [disabled]="!nameInputActivated" [(ngModel)]="this.userInfo.firstName"   class="form-control" placeholder="First Name">
+      </div>
+      <div class="col-1 mt-4" *ngIf="!nameInputActivated" style="margin-left:-20px">
+        <button (click)="activateInput('n')"  mat-icon-button color="primary"  > <mat-icon>edit</mat-icon></button>
+      </div>
+    </div>
+
+
+    <div class="col-5 row ms-2">
+      <div class="col-11">
+        <label    class="form-label text-uppercase">Last Name</label>
+        <input type="text" [disabled]="!lastInputActivated" [(ngModel)]="this.userInfo.lastName"   class="form-control" placeholder="Last Name">
+      </div>
+      <div class="col-1 mt-4" *ngIf="!lastInputActivated"  style="margin-left:-20px">
+        <button (click)="activateInput('l')" mat-icon-button color="primary"  > <mat-icon>edit</mat-icon></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-5 row ">
+      <div class="col-11">
+        <label    class="form-label text-uppercase">Email</label>
+        <input type="text" [disabled]="!emailInputActivated" [(ngModel)]="this.userInfo.email"   class="form-control" placeholder="Email">
+       </div>
+      <div class="col-1 mt-4" *ngIf="!emailInputActivated" style="margin-left:-20px">
+        <button (click)="activateInput('e')"  mat-icon-button color="primary"  > <mat-icon>edit</mat-icon></button>
+      </div>
+    </div>
+
+    <div class="col-5 row ms-2 ">
+      <div class="col-11">
+        <label    class="form-label text-uppercase">New Password</label>
+        <input type="password" [(ngModel)]="newPassword"  [disabled]="!passwordInputActivated"    class="form-control" placeholder="********">
+      </div>
+      <div class="col-1 mt-4" *ngIf="!passwordInputActivated" style="margin-left:-20px">
+        <button (click)="activateInput('p')" mat-icon-button color="primary"  > <mat-icon>edit</mat-icon></button>
+      </div>
+    </div>
+
+
+    <div [hidden]="!passwordInputActivated" class="col-10 mt-4 " style="width: 77%">
+      <label    class="form-label text-uppercase">Confirmer new password</label>
+      <input type="password" [(ngModel)]="confirmnewPassword"   class="form-control"  placeholder="********">
+    </div>
+    <div class="  mt-5">
+      <button type="button" (click)="submit()" class="btn btn-primary">Update</button>
+      <button type="button" (click)="cancel()" class="btn btn-secondary ms-4">annuler</button>
+    </div>
+  </div>
+
+
+
+</div>

@@ -1,0 +1,43 @@
+<div class="row " style="margin : 0 auto" >
+  <div class="col-7 ms-5 ps-5 mt-5"  >
+    <app-anim-main-page *ngIf="displayAnim" ></app-anim-main-page>
+    <div *ngIf="!displayAnim" > <img src="https://media.istockphoto.com/vectors/online-registration-concept-vector-id1324147344?b=1&k=20&m=1324147344&s=170667a&w=0&h=T0LpzxZBDBSUpErlcwM7R4HsB7rM4pdLRE8jS4QIy0w="> </div>
+
+  </div>
+
+
+  <div class="col-4   mt-5 pe-5 ">
+    <div class="card glassmorphism bg-white" >
+      <div class="card-body p-5 shadow-5 text-center ">
+        <h2 class="fw-bold mb-5">login</h2>
+        <form [formGroup]="loginForm" #form (ngSubmit)="login(form)" novalidate class="g-3 needs-validation">
+          <!-- Email input -->
+          <div class="form-outline mb-3 has-validation" >
+            <input type="mail"  id="mail" placeholder="email"
+                   aria-describedby="validationMailFeedback"  formControlName="mail"
+                   class="form-control"      />
+            <div id="validationMailFeedback" class="invalid-feedback text-start">
+              email est obligatoire et doit contenir @.
+            </div>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-3 has-validation">
+            <input type="password" formControlName="passWord"
+                   aria-describedby="validationPassWordFeedback"  placeholder="password"
+                   class="form-control"  required />
+            <div id="validationPassWordFeedback" class="invalid-feedback text-start">
+              mot de passe doit contenir au minimum 6 caracteres.
+            </div>
+          </div>
+          <!-- Submit button routerLink="/home"-->
+          <input type="submit"  value="login" [disabled]="!this.loginForm.valid" class="btn btn-primary btn-block mt-4 mb-4">
+          <div class="form-outline mb-3">
+            <button routerLink="/register" class="btn btn-primary btn-block mt-4 mb-4">sign up
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="mb-3" *ngIf="courriertemp">
+  <!--[formGroup]="ExpedForm" (ngSubmit)="save()"-->
+  <div >
+    <label for="date" class="mt-2 form-label text-uppercase">date</label>
+    <input type="date" [(ngModel)]="this.courriertemp.dateReception"  class="form-control" id="date" >
+
+    <label for="ref" class=" mt-2 form-label text-uppercase">reference</label>
+    <input type="text" [(ngModel)]="this.courriertemp.reference" class="form-control" id="ref" placeholder="reference">
+
+    <label for="dest" class="mt-2 form-label text-uppercase">destinataire</label>
+    <input type="text" [(ngModel)]="this.courriertemp.destinataire"  class="form-control" id="dest" placeholder="destinataire">
+
+    <label for="moderecp" class="mt-2 form-label text-uppercase">mode de Reception</label>
+    <input type="text"  class="form-control" [(ngModel)]="this.courriertemp.modeReception" id="moderecp" placeholder="mode de Reception">
+
+    <label for="comt"  class="mt-2 form-label text-uppercase" >commentaire</label>
+    <textarea id="comt" [(ngModel)]="this.courriertemp.commentaire"  class="form-control "  rows="1" cols="33"> </textarea>
+
+
+    <div class="mt-4 ms-3 me-3 row justify-content-between">
+      <hr>
+      <button type="button" class="btn btn-primary col-5 " (click)="updateCourrier()" data-bs-dismiss="modal">Save </button>
+      <button type="button" class="btn btn-danger col-5" data-bs-dismiss="modal">Close</button>
+    </div>
+  </div>
+
+</div>
